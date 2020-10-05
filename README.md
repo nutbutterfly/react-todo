@@ -1,6 +1,6 @@
 # POC ReactJS
+Written in TypeScript
 
 # Features
-- Written in TypeScript
-- Sticky Footer
-- To-Do
+- To-Do List
+- Done/Undone and Delete task
