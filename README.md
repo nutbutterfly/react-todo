@@ -1,6 +1,11 @@
-# POC ReactJS
+# Learn ReactJS
 Written in TypeScript
 
 # Features
-- To-Do List
-- Done/Undone and Delete task
+- Add Task
+- Done Task
+- Undone Task
+- Delete Task
+
+# Screenshot
+<img width="100%" src="screenshot.png" />
