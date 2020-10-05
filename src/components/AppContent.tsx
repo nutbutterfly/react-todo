@@ -11,11 +11,11 @@ import Todo from './Todo';
 
 export interface ITodo {
 
-    key: string,
+    id: string,
 
     text: string,
 
-    isCompleted: boolean
+    isDone: boolean
 
 };
 
@@ -34,9 +34,9 @@ function AppContent() {
         }
 
         var x: ITodo = {
-            key: (Math.random() * 1000).toString(),
+            id: (Math.random() * 1000).toString(),
             text: text.trim(),
-            isCompleted: false
+            isDone: false
         };
 
         setData([...data, x]);
@@ -48,10 +48,22 @@ function AppContent() {
         setText(e.target.value);
     };
 
+    const todoActionCallback = (id: string, action: string) => {
+        if (action === 'DONE' || action === 'UNDONE') {
+            var x = [...data];
+            x.filter(it => it.id === id)
+                .map((it) => it.isDone = !it.isDone);
+
+            setData(x);
+        } else if (action === 'DELETE') {
+            setData(data.filter(it => it.id !== id));
+        }
+    };
+
     return (
         <Container className="my-4">
             <Jumbotron>
-                <h1>Hello, ReactJS World!</h1>
+                <h1>Hello, React World!</h1>
                 <p>The POC project to learn how to build SPA with ReactJS</p>
             </Jumbotron>
 
@@ -70,7 +82,7 @@ function AppContent() {
 
             {
                 data.map((it) => (
-                    <Todo key={it.key} todo={it} />
+                    <Todo key={it.id} todo={it} callback={todoActionCallback} />
                 ))
             }
         </Container>

@@ -19,3 +19,11 @@ body {
 #footer {
   flex-shrink: 0;
 }
+
+.todo---done {
+  text-decoration: line-through;
+}
+
+.todo---undone {
+  text-decoration: none;
+}
